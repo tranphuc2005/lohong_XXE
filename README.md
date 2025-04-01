@@ -42,8 +42,29 @@
    - Đảm bảo không sử dụng các tính năng External Entities trong các thư viện phân tích XML.
    
 2. **Ví dụ code sửa lỗi XXE** (sử dụng Python `lxml`):
+
+   - Python
+
    ```python
    from lxml import etree
    
    parser = etree.XMLParser(resolve_entities=False)  # Disable External Entities
    tree = etree.parse("input.xml", parser)
+
+   - PHP
+   ```php
+   <?php
+// Vô hiệu hóa xử lý External Entities
+libxml_disable_entity_loader(true);
+
+// Tạo đối tượng DOMDocument
+$doc = new DOMDocument();
+
+// Đảm bảo không có lỗi khi load XML
+$doc->loadXML(file_get_contents('input.xml'), LIBXML_NOENT | LIBXML_DTDLOAD);
+
+// Xử lý XML sau khi đã parse
+// In ra thông tin hoặc làm việc với nội dung XML đã xử lý
+echo "XML đã được phân tích và xử lý thành công.";
+?>
+
