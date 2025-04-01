@@ -50,6 +50,7 @@ from lxml import etree
 
 parser = etree.XMLParser(resolve_entities=False)  # Disable External Entities
 tree = etree.parse("input.xml", parser)
+```
 
  - Để sửa lỗi XXE trong PHP, bạn có thể sử dụng `DOMDocument` và hàm `libxml_disable_entity_loader(true)` để vô hiệu hóa việc xử lý các External Entities.
 
@@ -68,3 +69,4 @@ $doc->loadXML(file_get_contents('input.xml'), LIBXML_NOENT | LIBXML_DTDLOAD);
 // In ra thông tin hoặc làm việc với nội dung XML đã xử lý
 echo "XML đã được phân tích và xử lý thành công.";
 ?>
+```
