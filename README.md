@@ -43,13 +43,13 @@
    
 2. **Ví dụ code sửa lỗi XXE** (sử dụng Python `lxml`):
 
-   - Python
+- Python
 
-   ```python
-   from lxml import etree
-   
-   parser = etree.XMLParser(resolve_entities=False)  # Disable External Entities
-   tree = etree.parse("input.xml", parser)
+```python
+from lxml import etree
+
+parser = etree.XMLParser(resolve_entities=False)  # Disable External Entities
+tree = etree.parse("input.xml", parser)
 
  - Để sửa lỗi XXE trong PHP, bạn có thể sử dụng `DOMDocument` và hàm `libxml_disable_entity_loader(true)` để vô hiệu hóa việc xử lý các External Entities.
 
